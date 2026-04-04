@@ -1,28 +1,101 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Berkeley Photo Portfolio</title>
+    <title>Class of 2026 | Berkeley Graduation Photography</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: sans-serif; text-align: center; background: #fafafa; margin: 0; }
-        .container { padding: 40px 20px; }
-        img { width: 100%; max-width: 500px; margin-bottom: 20px; border-radius: 4px; shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        h1 { font-weight: 300; margin-bottom: 5px; }
-        .btn { display: inline-block; padding: 12px 30px; border: 1px solid #333; color: #333; text-decoration: none; margin-top: 20px; }
+        :root { --cal-blue: #003262; --cal-gold: #FDB515; --text: #333; --light: #fdfdfd; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--light); color: var(--text); font-family: 'Montserrat', sans-serif; }
+
+        /* 顶部导航：强调限额 */
+        nav { background: var(--cal-blue); color: white; padding: 12px; text-align: center; font-size: 12px; font-weight: 700; letter-spacing: 1px; }
+
+        /* Hero Section: 明亮大气的开场 */
+        header { padding: 80px 5%; text-align: center; background: white; border-bottom: 4px solid var(--cal-gold); }
+        h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; color: var(--cal-blue); margin-bottom: 10px; }
+        .tagline { font-size: 1rem; color: #666; letter-spacing: 2px; text-transform: uppercase; }
+
+        /* 作品展示：大画幅、高画质感 */
+        .portfolio { max-width: 1000px; margin: 60px auto; padding: 0 20px; }
+        .series { margin-bottom: 100px; }
+        .series img { width: 100%; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        .series-info { display: flex; justify-content: space-between; align-items: baseline; border-left: 4px solid var(--cal-gold); padding-left: 15px; }
+        .series-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--cal-blue); }
+        .location { font-size: 0.9rem; color: #888; font-style: italic; }
+
+        /* 服务说明：直接、清晰 */
+        .details { background: #f4f4f4; padding: 80px 5%; text-align: center; }
+        .details h2 { color: var(--cal-blue); margin-bottom: 30px; }
+        .features { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; max-width: 800px; margin: 0 auto; }
+        .feature-item { flex: 1; min-width: 200px; }
+        .feature-item h3 { font-size: 1.2rem; margin-bottom: 10px; color: var(--cal-gold); }
+
+        /* 底部联系：转化核心 */
+        footer { padding: 100px 5%; text-align: center; background: var(--cal-blue); color: white; }
+        .cta-btn { display: inline-block; background: var(--cal-gold); color: var(--cal-blue); padding: 20px 45px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.2rem; transition: transform 0.3s; margin-bottom: 30px; }
+        .cta-btn:hover { transform: scale(1.05); }
+        .contact-info { font-size: 1rem; opacity: 0.8; line-height: 2; }
+
+        @media (max-width: 600px) { h1 { font-size: 2.2rem; } .features { gap: 20px; } }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>YOUR NAME</h1>
-        <p>UC Berkeley 毕业写真 · 定制主题</p>
 
-        <img src="pic1.jpg">
-        <img src="pic2.jpg">
-        <img src="pic3.jpg">
+    <nav>CLASS OF 2026 SPECIAL · ONLY 10 SLOTS AVAILABLE</nav>
 
-        <br>
-        <a href="#" class="btn">微信咨询: YOUR_ID</a>
+    <header>
+        <p class="tagline">Fine Art Graduation Photography</p>
+        <h1>Freeze the Blue & Gold.</h1>
+    </header>
+
+    <div class="portfolio">
+        <div class="series">
+            <img src="pic1.jpg" alt="Classic Berkeley">
+            <div class="series-info">
+                <div class="series-title">Classic Campus Story</div>
+                <div class="location">Sather Tower / Doe Library</div>
+            </div>
+        </div>
+
+        <div class="series">
+            <img src="pic2.jpg" alt="Golden Hour">
+            <div class="series-info">
+                <div class="series-title">Golden Hour Glow</div>
+                <div class="location">Memorial Glade</div>
+            </div>
+        </div>
     </div>
+
+    <div class="details">
+        <h2>Tailored Experience</h2>
+        <div class="features">
+            <div class="feature-item">
+                <h3>High-End Retouch</h3>
+                <p>15 professionally edited shots highlighting your best moments.</p>
+            </div>
+            <div class="feature-item">
+                <h3>All Originals</h3>
+                <p>Receive all raw/original shots within 48 hours.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Canon Color</h3>
+                <p>Leveraging Canon R50's stunning skin tones and clarity.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <h2>Let's capture your milestone.</h2>
+        <br>
+        <a href="javascript:void(0)" class="cta-btn" onclick="alert('WeChat: YOUR_ID')">Book Your Session</a>
+        <div class="contact-info">
+            <p>Instagram: @YOUR_HANDLE</p>
+            <p>Location: UC Berkeley Campus Only</p>
+        </div>
+    </footer>
+
 </body>
 </html>
