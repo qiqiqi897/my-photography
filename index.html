@@ -3,99 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Class of 2026 | Berkeley Graduation Photography</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <title>Qi Photography | Grad & Portraits</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lightgallery-bundle.min.css">
+    
     <style>
-        :root { --cal-blue: #003262; --cal-gold: #FDB515; --text: #333; --light: #fdfdfd; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: var(--light); color: var(--text); font-family: 'Montserrat', sans-serif; }
+        :root {
+            --bg-color: #FDFCF8;
+            --text-main: #2D2D2D;
+            --accent-gold: #C5A059;
+            --accent-green: #556B2F;
+            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
 
-        /* 顶部导航：强调限额 */
-        nav { background: var(--cal-blue); color: white; padding: 12px; text-align: center; font-size: 12px; font-weight: 700; letter-spacing: 1px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-main);
+            line-height: 1.6;
+        }
 
-        /* Hero Section: 明亮大气的开场 */
-        header { padding: 80px 5%; text-align: center; background: white; border-bottom: 4px solid var(--cal-gold); }
-        h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; color: var(--cal-blue); margin-bottom: 10px; }
-        .tagline { font-size: 1rem; color: #666; letter-spacing: 2px; text-transform: uppercase; }
+        h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 300; }
 
-        /* 作品展示：大画幅、高画质感 */
-        .portfolio { max-width: 1000px; margin: 60px auto; padding: 0 20px; }
-        .series { margin-bottom: 100px; }
-        .series img { width: 100%; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); margin-bottom: 20px; }
-        .series-info { display: flex; justify-content: space-between; align-items: baseline; border-left: 4px solid var(--cal-gold); padding-left: 15px; }
-        .series-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--cal-blue); }
-        .location { font-size: 0.9rem; color: #888; font-style: italic; }
+        /* Navigation */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 20px 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; background: rgba(253, 252, 248, 0.85); backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.03);
+        }
+        .logo { font-size: 1.1rem; letter-spacing: 4px; text-transform: uppercase; font-weight: 500; color: var(--accent-green); }
+        .nav-links a { text-decoration: none; color: var(--text-main); margin-left: 20px; font-size: 0.7rem; letter-spacing: 1px; font-weight: 500; }
 
-        /* 服务说明：直接、清晰 */
-        .details { background: #f4f4f4; padding: 80px 5%; text-align: center; }
-        .details h2 { color: var(--cal-blue); margin-bottom: 30px; }
-        .features { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; max-width: 800px; margin: 0 auto; }
-        .feature-item { flex: 1; min-width: 200px; }
-        .feature-item h3 { font-size: 1.2rem; margin-bottom: 10px; color: var(--cal-gold); }
+        section { padding: 100px 8%; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
 
-        /* 底部联系：转化核心 */
-        footer { padding: 100px 5%; text-align: center; background: var(--cal-blue); color: white; }
-        .cta-btn { display: inline-block; background: var(--cal-gold); color: var(--cal-blue); padding: 20px 45px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.2rem; transition: transform 0.3s; margin-bottom: 30px; }
-        .cta-btn:hover { transform: scale(1.05); }
-        .contact-info { font-size: 1rem; opacity: 0.8; line-height: 2; }
+        /* Home / Hero */
+        .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding-top: 140px; align-items: start; }
+        .hero-text h1 { font-size: clamp(3.5rem, 8vw, 5.5rem); line-height: 0.85; margin-bottom: 20px; color: var(--accent-green); }
+        .hero-text p { font-size: 0.95rem; color: #555; max-width: 420px; margin-bottom: 35px; }
+        
+        .price-box {
+            padding: 35px; border: 1px solid #E5E2D9; background: #fff;
+            position: relative;
+        }
+        .price-box h3 { font-size: 1.6rem; margin-bottom: 5px; }
+        .price-tag { font-size: 2.2rem; color: var(--accent-gold); margin-bottom: 15px; font-family: 'Cormorant Garamond'; font-style: italic; }
+        .specs { list-style: none; margin-bottom: 25px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #777; }
+        .specs li { margin: 6px 0; padding-left: 15px; position: relative; }
+        .specs li::before { content: '•'; position: absolute; left: 0; color: var(--accent-gold); }
 
-        @media (max-width: 600px) { h1 { font-size: 2.2rem; } .features { gap: 20px; } }
+        .hero-image { height: 75vh; overflow: hidden; }
+        .hero-image img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.98); }
+
+        /* Portfolio */
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 2.8rem; letter-spacing: 2px; }
+        .category-group { margin-bottom: 80px; }
+        .category-label { font-size: 1.2rem; margin-bottom: 25px; text-align: center; letter-spacing: 3px; text-transform: uppercase; color: var(--accent-green); font-weight: 400; }
+        
+        .gallery-grid { 
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+            gap: 12px; 
+        }
+        .gallery-item { 
+            display: block; aspect-ratio: 3/4; overflow: hidden; cursor: zoom-in;
+        }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
+        .gallery-item:hover img { transform: scale(1.03); }
+
+        /* Contact Section */
+        .contact-content { text-align: center; max-width: 500px; margin: 0 auto; }
+        .contact-content h2 { font-size: 3rem; margin-bottom: 15px; }
+        .contact-links { display: grid; gap: 15px; margin-top: 40px; }
+        
+        .contact-btn {
+            display: flex; align-items: center; justify-content: center;
+            padding: 18px; border: 1px solid #222; text-decoration: none; color: #222;
+            font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;
+            transition: var(--transition); font-weight: 500;
+        }
+        .contact-btn:hover { background: #222; color: #fff; }
+        .contact-btn.wechat:hover { background: #07C160; border-color: #07C160; }
+        .contact-btn.ig:hover { background: #E1306C; border-color: #E1306C; }
+        .contact-btn.wa:hover { background: #25D366; border-color: #25D366; }
+
+        .wechat-id { display: block; font-size: 0.65rem; opacity: 0.6; margin-top: 4px; }
+
+        /* LG Custom Style */
+        .lg-backdrop { background-color: rgba(253, 252, 248, 0.98) !important; backdrop-filter: blur(15px); }
+
+        @media (max-width: 768px) {
+            .hero { grid-template-columns: 1fr; padding-top: 100px; }
+            .hero-image { order: -1; height: 55vh; }
+            .gallery-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+            section { padding: 60px 5%; }
+        }
     </style>
 </head>
 <body>
 
-    <nav>CLASS OF 2026 SPECIAL · ONLY 10 SLOTS AVAILABLE</nav>
+    <nav>
+        <div class="logo">QI PHOTO</div>
+        <div class="nav-links">
+            <a href="#home">HOME</a>
+            <a href="#portfolio">WORK</a>
+            <a href="#contact">BOOKING</a>
+        </div>
+    </nav>
 
-    <header>
-        <p class="tagline">Fine Art Graduation Photography</p>
-        <h1>Freeze the Blue & Gold.</h1>
-    </header>
+    <section id="home" class="hero">
+        <div class="hero-text">
+            <h1>Graduation<br>Moments.</h1>
+            <p>Hi, I'm <strong>Qi</strong>. I specialize in cinematic graduation photography and stylized portraits that feel authentic to your journey.</p>
+            
+            <div class="price-box">
+                <h3>The Solo Shoot</h3>
+                <div class="price-tag">$200</div>
+                <ul class="specs">
+                    <li>1.5 - 2 Hours Session</li>
+                    <li>300+ Raw Photos (24h Delivery)</li>
+                    <li>15 High-end Retouched</li>
+                    <li>Graduation Stole Provided</li>
+                </ul>
+                <a href="#contact" style="text-decoration: none; display: inline-block; padding: 16px 32px; background: var(--text-main); color: #fff; font-size: 0.75rem; letter-spacing: 2px; font-weight: 500;">BOOK A SESSION</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=1200" alt="Qi Photography Hero">
+        </div>
+    </section>
 
-    <div class="portfolio">
-        <div class="series">
-            <img src="pic1.jpg" alt="Classic Berkeley">
-            <div class="series-info">
-                <div class="series-title">Classic Campus Story</div>
-                <div class="location">Sather Tower / Doe Library</div>
+    <section id="portfolio">
+        <div class="section-title">
+            <h2>The Gallery</h2>
+        </div>
+
+        <div class="category-group">
+            <p class="category-label">Graduation Series</p>
+            <div id="grad-gallery" class="gallery-grid">
+                <a href="https://images.unsplash.com/photo-1541339903292-b994c1f47287?auto=format&fit=crop&q=80&w=1200" class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1541339903292-b994c1f47287?auto=format&fit=crop&q=80&w=600" alt="Grad">
+                </a>
+                <a href="https://images.unsplash.com/photo-1627556704353-016ed9338604?auto=format&fit=crop&q=80&w=1200" class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1627556704353-016ed9338604?auto=format&fit=crop&q=80&w=600" alt="Grad">
+                </a>
             </div>
         </div>
 
-        <div class="series">
-            <img src="pic2.jpg" alt="Golden Hour">
-            <div class="series-info">
-                <div class="series-title">Golden Hour Glow</div>
-                <div class="location">Memorial Glade</div>
+        <div class="category-group">
+            <p class="category-label">Creative Portraits</p>
+            <div id="creative-gallery" class="gallery-grid">
+                <a href="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=1200" class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600" alt="Creative">
+                </a>
+                <a href="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=1200" class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=600" alt="Creative">
+                </a>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="details">
-        <h2>Tailored Experience</h2>
-        <div class="features">
-            <div class="feature-item">
-                <h3>High-End Retouch</h3>
-                <p>15 professionally edited shots highlighting your best moments.</p>
+    <section id="contact" style="background: #F7F5F0; min-height: 80vh;">
+        <div class="contact-content">
+            <h2>Let's Talk.</h2>
+            <p>Ready to frame your memories? Contact me through any of the platforms below.</p>
+            
+            <div class="contact-links">
+                <a href="https://wa.me/15100000000" class="contact-btn wa" target="_blank">
+                    WhatsApp
+                </a>
+                
+                <a href="https://instagram.com/your_handle" class="contact-btn ig" target="_blank">
+                    Instagram
+                </a>
+                
+                <div class="contact-btn wechat">
+                    <div>
+                        WeChat
+                        <span class="wechat-id">ID: Qi_Photography_2026</span>
+                    </div>
+                </div>
             </div>
-            <div class="feature-item">
-                <h3>All Originals</h3>
-                <p>Receive all raw/original shots within 48 hours.</p>
-            </div>
-            <div class="feature-item">
-                <h3>Canon Color</h3>
-                <p>Leveraging Canon R50's stunning skin tones and clarity.</p>
-            </div>
+            <p style="font-size: 0.7rem; color: #999; margin-top: 40px;">Berkeley / San Francisco / Bay Area</p>
         </div>
-    </div>
+    </section>
 
-    <footer>
-        <h2>Let's capture your milestone.</h2>
-        <br>
-        <a href="javascript:void(0)" class="cta-btn" onclick="alert('WeChat: YOUR_ID')">Book Your Session</a>
-        <div class="contact-info">
-            <p>Instagram: @YOUR_HANDLE</p>
-            <p>Location: UC Berkeley Campus Only</p>
-        </div>
-    </footer>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/lightgallery.min.js"></script>
+    <script>
+        const settings = {
+            speed: 500,
+            download: false,
+            counter: false,
+            selector: '.gallery-item',
+            backdropDuration: 300
+        };
+        
+        lightGallery(document.getElementById('grad-gallery'), settings);
+        lightGallery(document.getElementById('creative-gallery'), settings);
+    </script>
 </body>
 </html>
